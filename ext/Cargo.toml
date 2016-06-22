@@ -1,0 +1,12 @@
+[package]
+name = "blankityblank"
+version = "0.1.0"
+authors = ["Matt Blewitt <blewitt.matt@gmail.com>"]
+
+[dependencies]
+ruru = "0.7.0"
+libc = "0.2.11"
+
+[lib]
+name = "blankityblank"
+crate-type = ["dylib"]
