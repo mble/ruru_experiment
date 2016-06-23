@@ -1,7 +1,7 @@
 #[macro_use]
 extern crate ruru;
 extern crate libc;
-use std::ffi::{CStr};
+use std::ffi::CStr;
 use std::str;
 use ruru::*;
 use ruru::types::*;
@@ -12,7 +12,7 @@ methods!(
     fn string_is_blank() -> Boolean {
         Boolean::new(itself.to_string().chars().all(|c| c.is_whitespace()))
     }
-    );
+);
 
 #[no_mangle]
 pub extern "C" fn init_blank() {
@@ -22,7 +22,7 @@ pub extern "C" fn init_blank() {
 }
 
 #[no_mangle]
-pub extern fn is_blank(string: *const c_char) -> bool {
+pub extern "C" fn is_blank(string: *const c_char) -> bool {
     let c_str = unsafe {
         if string.is_null() {
             return true;

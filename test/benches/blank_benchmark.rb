@@ -36,4 +36,14 @@ class RuruExperimentBenchmark < Minitest::Benchmark
       end
     end
   end
+
+  def bench_active_support_blank?
+    assert_performance_constant do |n|
+      100_000.times do
+        TEST_STRINGS.each do |str|
+          str.old_blank?
+        end
+      end
+    end
+  end
 end

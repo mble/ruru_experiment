@@ -1,5 +1,12 @@
 require "ruru_experiment/version"
 require 'ffi'
+
+class String
+  def old_blank?
+    self === /\A[[:space:]]*\z/
+  end
+end
+
 module RuruExperiment
   extend FFI::Library
   ffi_lib begin
